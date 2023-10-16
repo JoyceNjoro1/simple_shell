@@ -1,5 +1,4 @@
 #include "main.h"
-#include "include/data_shell.h"
 
 /**
  * cd_shell - Change the current directory based on input
@@ -16,7 +15,7 @@ int cd_shell(data_shell *datash)
 
 	if (target_dir != NULL)
 	{
-		is_home = _strcmp("$HOME", target_dir);
+		is_home = strcmp("$HOME", target_dir);
 		is_home2 = _strcmp("~", target_dir);
 		is_ddash = _strcmp("--", target_dir);
 	}
