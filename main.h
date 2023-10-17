@@ -63,6 +63,12 @@ int split_commands(data_shell *datash, char *input);
 char **split_line(char *input)
 char *without_comment(char *in);
 void shell_loop(data_shell *datash);
+int (*get_builtin(char *cmd))(data_shell *);
+int get_error(data_shell *datash, int eval);
+int get_help(data_shell *datash);
+void bring_line(char **lineptr, size_t *n, char *buffer, size_t j);
+ssize_t get_line(char **lineptr, size_t *n, FILE *stream);
+void get_sigint(int sig);
 void set_env(const char *name, const char *value, data_shell *datash);
 char *_strdup(const char *str);
 void rev_string(char *s);
@@ -71,6 +77,7 @@ int _strcmp(const char *s1, const char *s2);
 char *_getenv(const char *name, char **env);
 int _strlen(const char *str);
 void get_error(data_shell *datash, int error_code);
+<<<<<<< HEAD
 int my_function(int parameter);
 void reverseString(char *inputString);
 char **split_line(char *input);
@@ -79,5 +86,13 @@ int _strlen(const char *s);
 int compareChars(char str[], const char *delim);
 char *_strtok(char str[], const char *delim);
 int _isdigit(const char *s);
+=======
+int (*get_builtin(char *cmd))(data_shell *);
+int get_error(data_shell *datash, int eval);
+int get_help(data_shell *datash); (Line 68);
+void bring_line(char **lineptr, size_t *n, char *buffer, size_t j);
+ssize_t get_line(char **lineptr, size_t *n, FILE *stream);
+void get_sigint(int sig);
+>>>>>>> c0e6cd16aec5f372340f8d64f8ce0e975cf2306a
 
 #endif
