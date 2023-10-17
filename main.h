@@ -38,5 +38,18 @@ void cd_to_home(data_shell *datash);
 void cd_previous(data_shell *datash);
 void cd_dot(data_shell *datash);
 void cd_to(data_shell *datash);
+int exit_shell(data_shell *datash);
+int exec_line(data_shell *datash);
+int is_cdir(char *path, int *i);
+char *_which(char *cmd, char **_environ);
+int is_executable(data_shell *datash);
+int check_error_cmd(char *dir, data_shell *datash);
+int cmd_exec(data_shell *datash);
+int cmp_env_name(const char *nenv, const char *name);
+char *_getenv(const char *name, char **_environ);
+int _env(data_shell *datash);
+char *copy_info(char *name, char *value);
+int _unsetenv(data_shell *datash);
+int _setenv(data_shell *datash);
 
 #endif
