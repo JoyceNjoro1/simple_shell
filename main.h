@@ -51,13 +51,11 @@ int _env(data_shell *datash);
 char *copy_info(char *name, char *value);
 int _unsetenv(data_shell *datash);
 int _setenv(data_shell *datash);
-<<<<<<< HEAD
 void custom_cd_to_home(data_shell *datash);
 int _strcmp(const char *s1, const char *s2);
 void custom_cd_previous(data_shell *datash);
 void custom_cd_dot(data_shell *datash);
 void custom_cd_to(data_shell *datash);
-=======
 char *swap_char(char *input, int bool);
 void add_nodes(sep_list **head_s, line_list **head_l, char *input);
 void go_next(sep_list **list_s, line_list **list_l, data_shell *datash);
@@ -65,7 +63,6 @@ int split_commands(data_shell *datash, char *input);
 char **split_line(char *input)
 char *without_comment(char *in);
 void shell_loop(data_shell *datash);
->>>>>>> 53bd656b35d856d3fd7cda78cd30ffa96f78cf4e
 void set_env(const char *name, const char *value, data_shell *datash);
 char *_strdup(const char *str);
 void rev_string(char *s);
