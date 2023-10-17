@@ -77,5 +77,11 @@ int _strcmp(const char *s1, const char *s2);
 char *_getenv(const char *name, char **env);
 int _strlen(const char *str);
 void get_error(data_shell *datash, int error_code);
+int (*get_builtin(char *cmd))(data_shell *);
+int get_error(data_shell *datash, int eval);
+int get_help(data_shell *datash); (Line 68);
+void bring_line(char **lineptr, size_t *n, char *buffer, size_t j);
+ssize_t get_line(char **lineptr, size_t *n, FILE *stream);
+void get_sigint(int sig);
 
 #endif
