@@ -93,6 +93,18 @@ int get_help(data_shell *datash); (Line 68);
 void bring_line(char **lineptr, size_t *n, char *buffer, size_t j);
 ssize_t get_line(char **lineptr, size_t *n, FILE *stream);
 void get_sigint(int sig);
->>>>>>> c0e6cd16aec5f372340f8d64f8ce0e975cf2306a
+char *_strcat(char *dest, const char *src);
+char *_strcpy(char *dest, char *src);
+int _strcmp(char *s1, char *s2);
+char *_strchr(char *s, char c);
+int _strspn(char *s, char *accept);
+int _strcmp(char *s1, char *s2);
+int get_length(int n);
+char *int_to_str(int n);
+int string_to_int(char *s);
+char *strcat_cd(data_shell *datash, char *msg, char *error, char *line_count);
+char *error_get_cd(data_shell *datash);
+char *error_not_found(data_shell *datash);
+char *error_exit_shell(data_shell *datash);
 
 #endif
