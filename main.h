@@ -66,5 +66,13 @@ char **split_line(char *input)
 char *without_comment(char *in);
 void shell_loop(data_shell *datash);
 >>>>>>> 53bd656b35d856d3fd7cda78cd30ffa96f78cf4e
+void set_env(const char *name, const char *value, data_shell *datash);
+char *_strdup(const char *str);
+void rev_string(char *s);
+char *_strtok(char *str, const char *delim);
+int _strcmp(const char *s1, const char *s2);
+char *_getenv(const char *name, char **env);
+int _strlen(const char *str);
+void get_error(data_shell *datash, int error_code);
 
 #endif
