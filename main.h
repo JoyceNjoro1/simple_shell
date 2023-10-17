@@ -109,5 +109,18 @@ char *error_exit_shell(data_shell *datash);
 void _memcpy(void *newptr, const void *ptr, unsigned int size);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 char **_reallocdp(char **ptr, unsigned int old_size, unsigned int new_size);
+void printEnvHelp(void);
+void printSetenvHelp(void);
+void printUnsetenvHelp(void);
+void printGeneralHelp(void);
+void printExitHelp(void);
+void aux_help_env(void);
+void aux_help_setenv(void);
+void aux_help_unsetenv(void);
+void aux_help_general(void);
+void aux_help_exit(void);
+void aux_help(void);
+void aux_help_alias(void);
+void aux_help_cd(void);
 
 #endif
