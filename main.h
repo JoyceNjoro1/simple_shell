@@ -58,5 +58,11 @@ int split_commands(data_shell *datash, char *input);
 char **split_line(char *input)
 char *without_comment(char *in);
 void shell_loop(data_shell *datash);
+int (*get_builtin(char *cmd))(data_shell *);
+int get_error(data_shell *datash, int eval);
+int get_help(data_shell *datash);
+void bring_line(char **lineptr, size_t *n, char *buffer, size_t j);
+ssize_t get_line(char **lineptr, size_t *n, FILE *stream);
+void get_sigint(int sig);
 
 #endif
