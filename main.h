@@ -71,5 +71,13 @@ int _strcmp(const char *s1, const char *s2);
 char *_getenv(const char *name, char **env);
 int _strlen(const char *str);
 void get_error(data_shell *datash, int error_code);
+int my_function(int parameter);
+void reverseString(char *inputString);
+char **split_line(char *input);
+char *_strdup(const char *s);
+int _strlen(const char *s);
+int compareChars(char str[], const char *delim);
+char *_strtok(char str[], const char *delim);
+int _isdigit(const char *s);
 
 #endif

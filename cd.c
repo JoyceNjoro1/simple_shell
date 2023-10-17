@@ -7,7 +7,7 @@
  *
  * No return value.
  */
-void cd_dot(data_shell *datash)
+void cd_dot(data_shell *datash);
 {
     char pwd[PATH_MAX];
     char *dir, *cp_pwd, *cp_strtok_pwd;
@@ -15,11 +15,11 @@ void cd_dot(data_shell *datash)
     getcwd(pwd, sizeof(pwd));
     cp_pwd = _strdup(pwd);
     set_env("OLDPWD", cp_pwd, datash);
-    dir = datash->args[1];
+    dir = datash>args[1];
 
     if (_strcmp(".", dir) == 0)
     {
-        set_env("PWD", cp_pwd, datash);
+        set_env("PWD", cp_pwd, data);
         free(cp_pwd);
         return;
     }
@@ -45,12 +45,12 @@ void cd_dot(data_shell *datash)
     if (cp_strtok_pwd != NULL)
     {
         chdir(cp_strtok_pwd);
-        set_env("PWD", cp_strtok_pwd, datash);
+        set_env("PWD", cp_strtok_pwd, data);
     }
     else
     {
         chdir("/");
-        set_env("PWD", "/", datash);
+        set_env("PWD", "/", data);
     }
 
     datash->status = 0;
@@ -122,7 +122,7 @@ void cd_previous(data_shell *datash)
     free(cp_pwd);
 
     if (p_oldpwd)
-        free(cp_oldpwd;
+        free(cp_oldpwd);
 
     datash->status = 0;
     chdir(p_pwd);
