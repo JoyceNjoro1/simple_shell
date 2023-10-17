@@ -51,5 +51,10 @@ int _env(data_shell *datash);
 char *copy_info(char *name, char *value);
 int _unsetenv(data_shell *datash);
 int _setenv(data_shell *datash);
+void custom_cd_to_home(data_shell *datash);
+int _strcmp(const char *s1, const char *s2);
+void custom_cd_previous(data_shell *datash);
+void custom_cd_dot(data_shell *datash);
+void custom_cd_to(data_shell *datash);
 
 #endif
