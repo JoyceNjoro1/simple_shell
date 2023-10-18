@@ -1,52 +1,12 @@
 #include "main.h"
-<<<<<<< HEAD
-#include "string.h"
+#include <unistd.h>
+#include <string.h>
 
 /**
- * cd_shell - Change the current directory based on input.
- * @datash: A pointer to data relevant to the shell.
+ * free_data - Frees a data structure
  *
- * Return: 1 on success.
- */
-int cd_shell(data_shell *datash)
-{
-    char *target_dir;
-    int is_home, is_home2, is_ddash;
-
-    target_dir = datash->args[1];
-
-    if (target_dir != NULL)
-    {
-        is_home = strcmp("$HOME", target_dir);
-        is_home2 = strcmp("~", target_dir);
-        is_ddash = strcmp("--", target_dir);
-    }
-
-    if (target_dir == NULL || is_home == 0 || is_home2 == 0 || is_ddash == 0)
-    {
-        cd_to_home(datash);
-        return (1);
-    }
-
-    if (strcmp("-", target_dir) == 0)
-    {
-        cd_previous(datash);
-        return (1);
-    }
-
-    if (strcmp(".", target_dir) == 0 || strcmp("..", target_dir) == 0)
-    {
-    }
-
-    return (1);
-}
-
-=======
-/**
- * free_data - frees data struc
- *
- * @datash: data struc
- * Return: no return
+ * @datash: Pointer to the data structure
+ * Return: No return value
  */
 void free_data(data_shell *datash)
 {
@@ -62,11 +22,11 @@ void free_data(data_shell *datash)
 }
 
 /**
- * set_data - Ini data struc
+ * set_data - Initializes a data structure
  *
- * @datash: data struc
- * @av: argument vector
- * Return: no return
+ * @datash: Pointer to the data structure
+ * @av: Argument vector
+ * Return: No return value
  */
 void set_data(data_shell *datash, char **av)
 {
@@ -93,17 +53,17 @@ void set_data(data_shell *datash, char **av)
 }
 
 /**
- * main - Entry point
+ * main - Entry point of the program
  *
- * @ac: argument count
- * @av: argument vector
+ * @ac: Argument count
+ * @av: Argument vector
  *
- * Return: 0 on success.
+ * Return: 0 on success
  */
 int main(int ac, char **av)
 {
 	data_shell datash;
-	(void) ac;
+	(void)ac;
 
 	signal(SIGINT, get_sigint);
 	set_data(&datash, av);
@@ -113,4 +73,4 @@ int main(int ac, char **av)
 		return (255);
 	return (datash.status);
 }
->>>>>>> 787ddf254a2b1a95661a5d2db2bdd0627a04ef32
+
