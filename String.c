@@ -8,8 +8,8 @@
  *
  * Return: Pointer to the destination string.
  */
-char *_strcat(char *dest, const char *src)
-{
+char *_strcat(char *dest, const char *src);
+	{
 	int dest_len;
 	int src_len;
 
@@ -33,7 +33,7 @@ char *_strcat(char *dest, const char *src)
  * Return: Pointer to the destination string.
  */
 char *_strcpy(char *dest, char *src);
-{
+	{
 	size_t i;
 
 	for (i = 0; src[i] != '\0'; i++)
@@ -56,8 +56,8 @@ char *_strcpy(char *dest, char *src);
  * - Positive value if s1 is greater than s2.
  * - Negative value if s1 is less than s2.
  */
-int _strcmp(char *s1, char *s2)
-{
+int _custom_strcmp(char *s1, char *s2);
+	{
 	int i;
 	for (i = 0; s1[i] == s2[i] && s1[i]; i++)
 		;

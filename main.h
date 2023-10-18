@@ -106,5 +106,14 @@ char *strcat_cd(data_shell *datash, char *msg, char *error, char *line_count);
 char *error_get_cd(data_shell *datash);
 char *error_not_found(data_shell *datash);
 char *error_exit_shell(data_shell *datash);
+char *errorEnv(data_shell *datash);
+char *errorPath126(data_shell *datash);
+char *read_line(int *i_eof);
+int repeated_char(char *input, int i);
+int error_sep_op(char *input, int i, char last);
+int first_char(char *input, int *i);
+void print_syntax_error(data_shell *datash, char *input, int i, int bool);
+int check_syntax_error(data_shell *datash, char *input);
+int _custom_strcmp(char *s1, char *s2);
 
 #endif
