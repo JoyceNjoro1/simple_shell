@@ -12,6 +12,12 @@
 #include <signal.h>
 #include <errno.h>
 
+#define TOK_BUFSIZE 128
+#define BUFSIZE 1024
+#define TOK_DELIM " \t\r\n\a"
+
+extern char **environ;
+
 /**
  * struct data - struct that contains all relevant data on runtime
  * @av: argument vector
@@ -32,6 +38,56 @@ typedef struct data
 	char **_environ;
 	char *pid;
 } data_shell;
+
+/**
+ * struct sep_list_s - single linked list
+ * @next: next node
+ * Description: single linked list
+ */
+typedef struct sep_list_s
+{
+	char separator;
+	struct sep_list_s *next;
+} sep_list;
+
+/**
+ * struct line_list_s - single lynked lyst
+ * @line: cmd line
+ * @next: next node
+ * Description: single linked list
+ */
+typedef struct line_list_s
+{
+	char *line;
+	struct line_list_s *next;
+} line_list;
+
+/**
+ * struct r_var_list - single lynked lyst
+ * @len_var: length of the var
+ * @val: value of the var
+ * @len_val: length of the valu
+ * @next: next node
+ * Description: single linked list
+ */
+typedef struct r_var_list
+{
+	int len_var;
+	char *val;
+	int len_val;
+	struct r_var_list *next;
+} r_var;
+
+/**
+ * struct builtin_s - Builtin struct 
+ * @name: The name of the command built
+ * @f: data type ptr
+ */
+typedef struct builtin_s
+{
+	char *name;
+	int (*f)(data_shell *datash);
+} builtin_t;
 
 int cd_shell(data_shell *datash);
 void cd_to_home(data_shell *datash);
@@ -106,6 +162,7 @@ char *strcat_cd(data_shell *datash, char *msg, char *error, char *line_count);
 char *error_get_cd(data_shell *datash);
 char *error_not_found(data_shell *datash);
 char *error_exit_shell(data_shell *datash);
+<<<<<<< HEAD
 char *errorEnv(data_shell *datash);
 char *errorPath126(data_shell *datash);
 char *read_line(int *i_eof);
@@ -115,5 +172,40 @@ int first_char(char *input, int *i);
 void print_syntax_error(data_shell *datash, char *input, int i, int bool);
 int check_syntax_error(data_shell *datash, char *input);
 int _custom_strcmp(char *s1, char *s2);
+=======
+void _memcpy(void *newptr, const void *ptr, unsigned int size);
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+char **_reallocdp(char **ptr, unsigned int old_size, unsigned int new_size);
+void printEnvHelp(void);
+void printSetenvHelp(void);
+void printUnsetenvHelp(void);
+void printGeneralHelp(void);
+void printExitHelp(void);
+void aux_help_env(void);
+void aux_help_setenv(void);
+void aux_help_unsetenv(void);
+void aux_help_general(void);
+void aux_help_exit(void);
+void aux_help(void);
+void aux_help_alias(void);
+void aux_help_cd(void);
+char *strcat_cd(data_shell *datash, char *msg, char *error, char *ver_str);
+char *error_get_cd(data_shell *datash);
+char *error_not_found(data_shell *datash);
+char *error_exit_shell(data_shell *datash);
+void free_sep_list(sep_list **head);
+void free_line_list(line_list **head);
+sep_list *add_sep_node_end(sep_list **head, char sep);
+line_list *add_line_node_end(line_list **head, char *line);
+void rev_string(char *s);
+r_var *add_rvar_node(r_var **head, int lvar, char *val, int lval);
+void free_rvar_list(r_var **head);
+void check_env(r_var **h, char *in, data_shell *data);
+int check_vars(r_var **h, char *in, char *st, data_shell *data);
+char *replaced_input(r_var **head, char *input, char *new_input, int nlen);
+char *rep_var(char *input, data_shell *datash);
+void free_data(data_shell *datash);
+void set_data(data_shell *datash, char **av);
+>>>>>>> 787ddf254a2b1a95661a5d2db2bdd0627a04ef32
 
 #endif
